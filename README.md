@@ -75,3 +75,18 @@ Use g unicorn to create python https server for wsgi applications. It allows you
 ```
 web: gunicorn app:app
 ```
+
+Go to Heroku & create an app. Connect via Github connect button & find the repo. Enable Automatic Deploys to change app when github upload changes. Check logs to see if the build succeeds or not. Predict frontend & predict_api backend should both work.
+
+Docker container can hold all dependencies & base configs.
+* FROM selects base images from DockerHub (i.e python:3.7 takes base image of python w/ Linux server on top)
+* COPY copy info from current location into an app
+* WORKDIR establish the app folder as the working directory
+* RUN dictate what command should be run
+* EXPOSE expose some port to enable access to url; doing $PORT allows cloud server to automatically decide that port
+* CMD (gunicorn allows you to run the python app w/i Heroku cloud) (--workers divides tasks among a set number of instances ) (--bind give some local addr. in Heroku cloud) (app:app first app goes into app.py & second app runs the app variable w/i which is the Flask app)
+
+Configure CI/CD workflow using github actions.
+1. create folder called .github
+2. create workflows folder w/i that
+3. create main.yaml file w/i which tells what must be done to create the container
