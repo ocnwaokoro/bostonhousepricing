@@ -90,3 +90,6 @@ Configure CI/CD workflow using github actions.
 1. create folder called .github
 2. create workflows folder w/i that
 3. create main.yaml file w/i which tells what must be done to create the container
+    * this yaml file is specifically meant to deploy Dockers container to Heroku
+        * the template for this can be found online
+    * go into repo, then settings, then security, then secrets so that git can hide secret information for you
