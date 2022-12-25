@@ -68,3 +68,10 @@ To leave app
 cntrl-Z
 cntrl-C
 ```
+
+Create frontend version of web app for upload into cloud.
+Create Procfile that tells Heroku what commands the app must execute as soon as it starts.
+Use g unicorn to create python https server for wsgi applications. It allows you to run python application concurrently by running multiple processes. gunicorn allows for loadbalancing & sends the requests of many users to many diff instances. app:app specifies the app name as app.
+```
+web: gunicorn app:app
+```
